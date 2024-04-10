@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0.15em;
+  border-right: 2px solid #000;
+}
+
+@keyframes typing {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+/* Apply the animation to the element without 'infinite' */
+.typing-animation {
+  animation: typing 4s steps(40, end);
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  height: 5vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.three-element-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.three-element-individual {
+  width: 33%;
+  padding: 3vh;
+  text-align: center;
+}
+
+.my-hero {
+  background-image: url('/assets/HelloWorld.png');
+}
+
+@media (max-width: 1300px) {
+  .my-hero {
+    background-image: url('/assets/HelloWorldMobile.png');
+  }
+
+  .three-element-container {
+    text-align: center;
+    padding-bottom: 5vh;
+  }
+  
+  .three-element-individual {
+    width: 85%
+  }
+}
