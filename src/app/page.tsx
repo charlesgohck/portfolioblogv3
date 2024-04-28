@@ -11,8 +11,8 @@ function getNumYearsWorkingExperience() {
 }
 
 export const metadata: Metadata = {
-    title: 'Charles Goh: Engineer. Problem Solver',
-    description: 'I am an engineer, and problem solver.'
+    title: 'Charles Goh: Blog',
+    description: 'Charles Goh: Blog'
 }
 
 export default function Home() {
