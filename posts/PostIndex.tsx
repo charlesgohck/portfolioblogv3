@@ -9,6 +9,14 @@ export interface PostInfo {
 
 const BlogPostIndex: PostInfo[] = [
     {
+        title: 'OMSCS: Spring 2023',
+        date: 'May 5 2024',
+        excerpt: 'For the Spring 2023 semester, I took CS8803-015 Special Topics: Computer Law and CS8803-019 Special Topics: Security Incident Response. This is my review for these courses.',
+        coverImage: 'N/A',
+        subPath: 'cs8803cs8803',
+        tags: 'reviews,omscs,gatech'
+    },
+    {
         title: 'OMSCS: Fall 2023',
         date: 'January 13 2024',
         excerpt: 'For the Fall 2023 semester, I took CS6601 Artificial Intelligence. Here is my review for this course.',

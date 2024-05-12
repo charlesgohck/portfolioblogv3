@@ -14,7 +14,7 @@ I thoroughly enjoyed taking this course. The assignments on Search algorithms an
 There were also several other interesting topics such as Bayes Nets, Constraint Satisfaction Problems, Guassian Mixture Models, Neural Nets, Decision Trees, and Hidden Markov Models. 
 
 ## Difficulty
-This course required consistent effort and a greater number of hours spent a week. I estimate anywhere between 10 to 30 hours spent a week, depending on when there is a submission due. I like to get started as soon as I can, and leveraged on days off from work to complete each assignment. The midterms and finals were of medium to medium-hard difficulty. I managed to do fairly well for the midterms and in all of my assignments so I did not have to worry too much during the finals. 
+This course required consistent effort and a greater number of hours spent a week. I estimate anywhere between **10 to 30 hours** spent a week, depending on when there is a submission due. I like to get started as soon as I can, and leveraged on days off from work to complete each assignment. The midterms and finals were of medium to medium-hard difficulty. I managed to do fairly well for the midterms and in all of my assignments so I did not have to worry too much during the finals. 
 
 ## Support
 Ed Discussion posts really helpful because students posted questions frequently. Answers and FYI information from the teaching assistants were also timely and helped throughout the course. I also appreciated the walkthroughs for each assignment. They were informative and helped to get me started. 
