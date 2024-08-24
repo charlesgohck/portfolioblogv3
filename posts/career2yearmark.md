@@ -23,5 +23,3 @@ Firstly, **communication is central to everything.** Clear communication helps c
 With the fast pace at which technology changes, I must continuously upgrade myself. Within the company and my team, I look for opportunities to learn skills relevant to my role and domain knowledge (in this case, infrastructure automation) required to understand everything end-to-end fully. Besides expanding my Computer Science and Software Engineering knowledge with the OMSCS program, I'm also pursuing side projects that I am interested in, and this blog is one of them. In doing so, I can learn new trending technologies like NextJS and automated cloud deployment pipelines. 
 
 Finally, it is too easy to think about the past and what I could have or should have done or worry about what is to come in the future. I constantly remind myself that it is healthier and more productive to appreciate everything and everyone that has come my way. 
-
-> *"If you are depressed, you are living in the past. If you are anxious, you are living in the future. If you are at peace, you are living in the present."* - Lao Tzu.
