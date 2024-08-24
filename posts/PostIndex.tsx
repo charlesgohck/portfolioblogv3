@@ -9,6 +9,14 @@ export interface PostInfo {
 
 const BlogPostIndex: PostInfo[] = [
     {
+        title: 'Software Engineering Career: 4 Year Mark',
+        date: 'August 24 2024',
+        excerpt: 'My thoughts after crossing the 4 year mark as a Software Engineer.',
+        coverImage: '/assets/images/posts/Career/SoftwareEngineeringCareerHelloWorld.png',
+        subPath: 'career4yearmark',
+        tags: 'reviews,career'
+    },
+    {
         title: 'OMSCS: Spring 2023',
         date: 'May 12 2024',
         excerpt: 'For the Spring 2023 semester, I took CS8803-015 Special Topics: Computer Law and CS8803-019 Special Topics: Security Incident Response. This is my review for these courses.',
