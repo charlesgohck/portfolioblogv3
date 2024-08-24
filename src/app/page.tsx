@@ -76,13 +76,13 @@ export default function Home() {
             </div>
             <div className="three-element-container" style={{ paddingBottom: "5vh" }}>
                 <div className="three-element-individual">
-                    <i className="fa-solid fa-stairs fa-5x"></i>
+                    <i className="fa-solid fa-computer fa-5x"></i>
                     <p className="text-primary"><strong>Bachelor of Computing</strong></p>
                     <p className="text-tertiary"><strong>National University of Singapore</strong></p>
                     <p>Computer Science Major with Database Systems Specialization and Business Management Minor (Distinction Honours)</p>
                 </div>
                 <div className="three-element-individual">
-                    <i className="fa-solid fa-brain fa-5x"></i>
+                    <i className="fa-solid fa-server fa-5x"></i>
                     <p className="text-primary"><strong>Master of Science</strong></p>
                     <p className="text-tertiary"><strong>Georgia Institute of Technology</strong></p>
                     <p>Computer Science Major with Interactive Intelligence Specialization</p>
