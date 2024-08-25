@@ -17,7 +17,7 @@ It is still a pleasure working with my team. Everyone is helpful to each other a
 
 I have to give an enourmous thank you to my senior colleagues around me at work who have have guided and supported me throughout my journey so far. 
 
-I also greatly appreciate the teamwork and comaraderie between the team members. You have made working at Visa a great experience. 
+I also greatly appreciate the teamwork between the team members. You have made working at Visa a great experience. 
 
 # 3 Learnings
 Firstly, **communication is again key.** Interactions with stakeholders and colleagues are often an important part of solving problems. 
