@@ -17,7 +17,7 @@ const BlogPostIndex: PostInfo[] = [
         tags: 'reviews,career'
     },
     {
-        title: 'OMSCS: Spring 2023',
+        title: 'OMSCS: Spring 2024',
         date: 'May 12 2024',
         excerpt: 'For the Spring 2023 semester, I took CS8803-015 Special Topics: Computer Law and CS8803-019 Special Topics: Security Incident Response. This is my review for these courses.',
         coverImage: 'N/A',
