@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import BlogPostIndex from './../../posts/PostIndex';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const currentDateTime: Date = new Date();
     let siteMapArray: MetadataRoute.Sitemap = [
