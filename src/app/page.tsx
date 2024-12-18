@@ -91,7 +91,7 @@ export default function Home() {
                     <i className="fa-solid fa-briefcase fa-5x"></i>
                     <p className="text-primary"><strong>Master of Business Administration</strong></p>
                     <p className="text-tertiary"><strong>Univerisity of Illinois-Urbana Champaign</strong></p>
-                    <p>Focus Area To Be Decided</p>
+                    <p>Tentative Focus Areas: Global Challenges in Business, Entrepreneurship and Strategic Innovation</p>
                 </div>
             </div>
         </main>
