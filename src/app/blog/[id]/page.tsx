@@ -17,14 +17,12 @@ export async function generateStaticParams() {
 }
 
 type Props = {
-    params: { id: string }
-    searchParams: { [key: string]: string | string[] | undefined }
+    params: Promise<{ id: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export async function generateMetadata(
-    { params, searchParams }: Props,
-    parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+    const params = await props.params;
 
     const markdownFileInfo = fs.readFileSync(
         path.join('posts/', params.id + '.md'),
@@ -40,7 +38,8 @@ export async function generateMetadata(
     }
 }
 
-export default function BlogPost({ params }: { params: { title: string, id: string, excerpt: string } }) {
+export default async function BlogPost(props: { params: Promise<{ title: string, id: string, excerpt: string }> }) {
+    const params = await props.params;
 
     const markdownFileInfo = fs.readFileSync(
         path.join('posts/', params.id + '.md'),
