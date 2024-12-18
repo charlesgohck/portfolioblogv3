@@ -1,6 +1,6 @@
 ---
 title: 'UIUC Gies MBA Fall 2024'
-date: 'December 12 2024'
+date: 'December 18 2024'
 excerpt: 'For the Fall 2024 semester, I took the courses BADM508 Leadership and Teams, BADM509 Managing Organizations, and MBA597 Program Foundations.'
 cover_image: 'N/A'
 tags: 'reviews,gies,mba'
