@@ -1,9 +1,9 @@
+import { wisp } from "@/lib/wisp";
 import { MetadataRoute } from "next";
-import BlogPostIndex from './../../posts/PostIndex';
 
 export const dynamic = 'force-static';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const currentDateTime: Date = new Date();
     let siteMapArray: MetadataRoute.Sitemap = [
         {
@@ -19,9 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         }
     ];
-    const blogPostSiteMapArray: MetadataRoute.Sitemap = BlogPostIndex.map(details => {
+    let posts = await wisp.getPosts({ limit: "all" });
+    const blogPostSiteMapArray: MetadataRoute.Sitemap = posts.posts.map(details => {
         return {
-            url: `https://charlesgohck.com/blog/${details.subPath}`,
+            url: `https://charlesgohck.com/blog/${details.slug}`,
             lastModified: currentDateTime,
             changeFrequency: "monthly",
             priority: 0.5,
