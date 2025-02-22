@@ -1,7 +1,3 @@
-import path from 'path';
-import fs from 'fs';
-import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import { Metadata, ResolvingMetadata } from 'next';
 import { wisp } from '@/lib/wisp';
@@ -21,7 +17,7 @@ type Props = {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
     const params = await props.params;
 
     const metadata = await wisp.getPost(params.id);
@@ -33,9 +29,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     }
 }
 
-export interface PageProps<T> { params: Promise<T>; }
+interface PageProps<T> { params: Promise<T>; }
 
-export interface BlogPostParams { id: string }
+interface BlogPostParams { id: string }
 
 export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
 
