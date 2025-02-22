@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import BlogPostIndex, { PostInfo } from "../../../posts/PostIndex";
 import Link from "next/link";
-import { sortByDate } from "../utils";
+import { wisp } from "@/lib/wisp";
 
 export const metadata: Metadata = {
     title: 'Charles Goh: Blog',
@@ -9,9 +8,9 @@ export const metadata: Metadata = {
     icons: "/assets/favicon.ico"
 }
 
-export default function Blog() {
+export default async function Blog() {
 
-    const indexSorted: PostInfo[] = BlogPostIndex.sort(sortByDate);
+    let posts = await wisp.getPosts({ limit: "all" });
 
     return (
         <main style={{ flex: "1", marginBottom: '3vh', paddingTop: '5vh' }}>
@@ -20,14 +19,19 @@ export default function Blog() {
                 <div className="prose">
                     <h1 style={{ padding: "3vh", textAlign: "center" }}>Blog</h1>
                     {
-                        indexSorted.map(element => {
-                            return <div key={element.title} className="card w-96 bg-base-100 shadow-xl" style={{ marginBottom: "5vh", width: "100%" }}>
+                        posts.posts.map(element => {
+                            return <div key={element.title.split(" ").join("-")} className="card w-96 bg-base-100 shadow-xl" style={{ marginBottom: "5vh", width: "100%" }}>
                                 <div className="card-body">
                                     <h2 className="card-title">{element.title}</h2>
-                                    <h3>{element.date}</h3>
-                                    <p>{element.excerpt}</p>
+                                    <h3>{element.publishedAt ? new Date(element.publishedAt).toLocaleDateString() : "Invalid Date"}</h3>
+                                    <p>{element.description}</p>
                                     <div className="card-actions justify-end">
-                                        <Link href={`/blog/${element.subPath}`}><button className="btn btn-primary btn-outline">Read More</button></Link>
+                                        <Link href={`/blog/${element.slug}`}><button className="btn btn-primary btn-outline">Read More</button></Link>
+                                    </div>
+                                    <div>
+                                        {
+                                            element.tags.map(tag => <div className="badge badge-primary m-0.5" key={`${element.title.split(" ").join("-")}-${tag.name.split(" ").join("-")}`}>{tag.name}</div>)
+                                        }
                                     </div>
                                 </div>
                             </div>
