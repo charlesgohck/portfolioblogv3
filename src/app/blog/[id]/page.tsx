@@ -74,6 +74,7 @@ export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
                         className='blog-content mx-auto'
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
+                    <div className="prose text-center"><a href={"https://www.wisp.blog"} target="_blank">Powered by Wisp</a></div>
                     <Link href={`/blog`}><button className='btn btn-outline btn-primary'>Back</button></Link>
                 </div>
             </article>

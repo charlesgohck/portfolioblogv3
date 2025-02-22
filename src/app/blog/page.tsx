@@ -37,6 +37,7 @@ export default async function Blog() {
                             </div>
                         })
                     }
+                    <div className="prose text-center"><a href={"https://www.wisp.blog"} target="_blank">Powered by Wisp</a></div>
                 </div>
             </article>
         </main>
