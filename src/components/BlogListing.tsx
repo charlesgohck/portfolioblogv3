@@ -31,6 +31,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
     };
 
     const handleSearch = (query: string) => {
+        query = query.toLowerCase();
         setKeywords(query);
     };
 
@@ -55,7 +56,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
     }
 
     if (keywords.length > 0) {
-        postsProcessed = postsProcessed.filter(post => post.title.includes(keywords) || post.description?.includes(keywords) || post.tags.map(tag => tag.name).includes(keywords));
+        postsProcessed = postsProcessed.filter(post => post.title.toLowerCase().includes(keywords) || post.description?.toLowerCase().includes(keywords) || post.tags.map(tag => tag.name.toLowerCase()).includes(keywords));
     }
 
     return (
