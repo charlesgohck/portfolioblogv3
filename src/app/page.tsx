@@ -1,25 +1,11 @@
 import { Metadata } from "next";
 
-function getNumYearsWorkingExperience() {
-    const currentDate: Date = new Date();
-    const startOfWorkDate: Date = new Date("2020-10-05");
-    const timeDifference: number = currentDate.getTime() - startOfWorkDate.getTime()  ;
-    const millisecondsPerYear: number = 1000 * 60 * 60 * 24 * 365.25;
-    const yearsSince: number = timeDifference / millisecondsPerYear;
-    const roundedYears: number = Math.floor(yearsSince);
-    return roundedYears;
-}
-
 export const metadata: Metadata = {
     title: 'Charles Goh: Home',
     description: 'Charles Goh: Home'
 }
 
 export default function Home() {
-    function rgba(arg0: number, arg1: number, arg2: number, arg3: number): import("csstype").Property.BackgroundColor | undefined {
-        throw new Error('Function not implemented.')
-    }
-
     return (
         <main>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />

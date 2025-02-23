@@ -7,14 +7,15 @@ tags: 'life,hobbies'
 ---
 # The Objective
 The Luncheon Meet App is a NextJS project that is helping me learn NextJS and React. The app will consist of the following main features:
-- Ability to Login to Google securely via OAuth using AuthJS - Completed
-- Auto-generation of profile and ability to edit the profile - Needs Rework
-- Ability to add new meets, edit meets, and delete meets - Needs Rework
-- Join Feature, Leave Feature, Kick Feature, Ban Feature - Pending
-- Release Ban Feature - Pending
-- Chatroom Feature - Pending
-- Landing Page - Pending
-- Blog - Pending
+- **Ability to Login to Google securely via OAuth using AuthJS -** Completed
+- **Auto-generation of profile and ability to edit the profile -** Needs Rework
+- **Ability to add new meets, edit meets, and delete meets -** Needs Rework
+- **Search for meets -** Pending
+- **Join Feature, Leave Feature, Kick Feature, Ban Feature -** Pending
+- **Release Ban Feature -** Pending
+- **Chatroom Feature -** Pending
+- **Landing Page -** Pending
+- **Blog -** Pending
 
 # Learnings So Far
 Firstly, I've been trying to find ways to shift most of the business logic to the server side for processing. Initially, I used client side on submit functions to make an axios call to the backend to create, update, or delete data because that is how I've always done it in the past. However, I've recently learned of something called server side actions, where NextJS will abstract away the processing on the server side. The functionality will have to be edited. 
