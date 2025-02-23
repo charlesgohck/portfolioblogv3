@@ -40,13 +40,13 @@ export default function BlogListing({ posts }: BlogListingProps) {
         postsProcessed = posts.posts.filter(post => searchTags.size === 0 || searchTagsArray.every(searchTag => post.tags.map(tag => tag.name).includes(searchTag)));
     }
 
-    console.log(searchTags)
+    // console.log(searchTags)
 
     return (
         <main className="flex-1 mb-[3vh] pt-[5vh]">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-            <article style={{ marginTop: "2%", width: "100%" }} className="min-h-screen flex justify-center">
-                <div className="prose">
+            <article className="min-h-screen flex justify-center mt-5 w-full">
+                <div className="prose w-[95%]">
                     <h1 className="mt-5 text-center">Blog</h1>
                     <div className="pl-5 pb-5 text-center">
                         {

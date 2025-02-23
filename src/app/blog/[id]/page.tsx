@@ -55,10 +55,10 @@ export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
     const { title, publishedAt, content, tags } = result.post;
 
     return (
-        <main style={{ flex: "1", marginBottom: '3vh', paddingTop: '5vh' }}>
+        <main className='flex-1 mb-[3vh] pt-[5vh]'>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
             <article style={{ marginTop: "2%", width: "100%" }} className="min-h-screen flex justify-center">
-                <div className="prose mt-5 mb-5">
+                <div className="prose mt-5 mb-5 w-[95%]">
                     <h1 className='text-center'>{title}</h1>
                     <h3 className='text-center'>{publishedAt ? new Date(publishedAt).toLocaleDateString() : "Invalid Date"}</h3>
                     <div className='text-center mb-5'>
