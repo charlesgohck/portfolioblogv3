@@ -8,8 +8,8 @@ tags: 'life,hobbies'
 # The Objective
 The Luncheon Meet App is a NextJS project that is helping me learn NextJS and React. The app will consist of the following main features:
 - **Ability to Login to Google securely via OAuth using AuthJS -** Completed
-- **Auto-generation of profile and ability to edit the profile -** Needs Rework
-- **Ability to add new meets, edit meets, and delete meets -** Needs Rework
+- **Auto-generation of profile and ability to edit the profile -** Needs Rework (Update: Sticking to Client Side Submission)
+- **Ability to add new meets, edit meets, and delete meets -** Needs Rework (Update: Sticking to Client Side Submission)
 - **Search for meets -** Pending
 - **Join Feature, Leave Feature, Kick Feature, Ban Feature -** Pending
 - **Release Ban Feature -** Pending
@@ -18,7 +18,7 @@ The Luncheon Meet App is a NextJS project that is helping me learn NextJS and Re
 - **Blog -** Pending
 
 # Learnings So Far
-Firstly, I've been trying to find ways to shift most of the business logic to the server side for processing. Initially, I used client side on submit functions to make an axios call to the backend to create, update, or delete data because that is how I've always done it in the past. However, I've recently learned of something called server side actions, where NextJS will abstract away the processing on the server side. The functionality will have to be edited. 
+Firstly, I've been trying to find ways to shift most of the business logic to the server side for processing. Initially, I used client side on submit functions to make an axios call to the backend to create, update, or delete data because that is how I've always done it in the past. However, I've recently learned of something called server side actions, where NextJS will abstract away the processing on the server side. The functionality will have to be edited. (Update: I will be sticking to Client Side Submission)
 
 Secondly, I've been researching how to do the Chatroom feature. One way is to use web sockets, but I was looking for a simpler solution that would centralize the event notification system. I've settled on the lightweight pub/sub pg_notify functionality from Postgres combined with Server Side Events for updating the browser. Whether or not this can be successfully implemented or not remains to be seen. The goal is to have one chatroom user send a message, the app writing to the DB, and then other users receiving the updates right away. 
 
