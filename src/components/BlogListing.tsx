@@ -2,7 +2,8 @@
 
 import { GetPostsResult } from "@/lib/wisp";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { debounce } from 'lodash';
 
 export interface BlogListingProps {
     posts: GetPostsResult
@@ -11,7 +12,7 @@ export interface BlogListingProps {
 export default function BlogListing({ posts }: BlogListingProps) {
 
     const [searchTags, setSearchTags] = useState<Set<string>>(new Set());
-    // const [keywords, setKeywords] = useState<string>("");
+    const [keywords, setKeywords] = useState<string>("");
 
     const handleSubmitSearchTag = (tag: string) => {
         if (searchTags.has(tag)) {
@@ -27,6 +28,19 @@ export default function BlogListing({ posts }: BlogListingProps) {
                 return newSet;
             })
         }
+    };
+
+    const handleSearch = (query: string) => {
+        setKeywords(query);
+    };
+
+    const debouncedSearch = useCallback(
+        debounce(nextSearchValue => handleSearch(nextSearchValue), 500), []
+    );
+
+    const handleDebouncedSearchQueryEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        debouncedSearch(value);
     }
     
     let postsProcessed = posts.posts;
@@ -40,7 +54,9 @@ export default function BlogListing({ posts }: BlogListingProps) {
         postsProcessed = posts.posts.filter(post => searchTags.size === 0 || searchTagsArray.every(searchTag => post.tags.map(tag => tag.name).includes(searchTag)));
     }
 
-    // console.log(searchTags)
+    if (keywords.length > 0) {
+        postsProcessed = postsProcessed.filter(post => post.title.includes(keywords) || post.description?.includes(keywords) || post.tags.map(tag => tag.name).includes(keywords));
+    }
 
     return (
         <main className="flex-1 mb-[3vh] pt-[5vh]">
@@ -53,6 +69,20 @@ export default function BlogListing({ posts }: BlogListingProps) {
                             allTags.map(tag => <button type="button" className={`badge ${searchTags.has(tag) ? "badge-primary" : "badge-neutral" } m-0.5 neutral`} key={`search-tag-${tag}`} onClick={() => handleSubmitSearchTag(tag)}>{tag}</button>)
                         }
                     </div>
+                    <label className="input input-bordered flex items-center gap-2">
+                        <input type="text" className="grow" placeholder="Search" onChange={handleDebouncedSearchQueryEvent} />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 16 16"
+                            fill="currentColor"
+                            className="h-4 w-4 opacity-70">
+                            <path
+                            fillRule="evenodd"
+                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                            clipRule="evenodd" />
+                        </svg>
+                    </label>
+                    <br/>
                     {
                         posts === null || posts === undefined ? <div>
                             <div className="flex w-52 flex-col gap-4">
