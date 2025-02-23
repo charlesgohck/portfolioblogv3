@@ -11,7 +11,7 @@ export interface BlogListingProps {
 export default function BlogListing({ posts }: BlogListingProps) {
 
     const [searchTags, setSearchTags] = useState<Set<string>>(new Set());
-    const [keywords, setKeywords] = useState<string>("");
+    // const [keywords, setKeywords] = useState<string>("");
 
     const handleSubmitSearchTag = (tag: string) => {
         if (searchTags.has(tag)) {
@@ -50,7 +50,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
                     <h1 className="mt-5 text-center">Blog</h1>
                     <div className="pl-5 pb-5 text-center">
                         {
-                            allTags.map(tag => <button type="button" className="badge badge-default m-0.5 neutral" key={`search-tag-${tag}`} onClick={() => handleSubmitSearchTag(tag)}>{tag}</button>)
+                            allTags.map(tag => <button type="button" className={`badge ${searchTags.has(tag) ? "badge-primary" : "badge-neutral" } m-0.5 neutral`} key={`search-tag-${tag}`} onClick={() => handleSubmitSearchTag(tag)}>{tag}</button>)
                         }
                     </div>
                     {
