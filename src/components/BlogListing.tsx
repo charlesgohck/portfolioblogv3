@@ -136,7 +136,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
                                     </div>
                                     <div className="flex flex-col justify-end pr-5 pb-5">
                                         <div className="card-actions">
-                                            <Link href={`/blog/${element.slug}`}><button className="btn btn-primary">Read More</button></Link>
+                                            <Link href={`/blog/${element.slug}`}><button className="btn btn-primary">Read</button></Link>
                                         </div>
                                     </div>
                                 </div>
