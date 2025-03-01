@@ -18,7 +18,7 @@ export default function Home() {
                     Solving problems in systems and software.
                 </p>
                 <div className="mt-8">
-                    <Link className="px-8 py-4 btn btn-primary font-medium rounded-full shadow hover:shadow-lg transition" href={"/blog"}>
+                    <Link className="px-8 py-4 btn btn-primary font-medium shadow hover:shadow-lg transition" href={"/blog"}>
                         Blog
                     </Link>
                 </div>
