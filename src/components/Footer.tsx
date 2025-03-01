@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="footer p-10 bg-base-100 text-neutral-content">
+        <footer className="footer p-10">
             <nav>
                 <header className="footer-title">Social</header>
                 <div className="grid grid-flow-col gap-4">

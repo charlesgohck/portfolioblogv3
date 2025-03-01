@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: 'Charles Goh: Home',
@@ -9,7 +10,19 @@ export default function Home() {
     return (
         <main>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-            <div className="hero bg-base-200 my-hero" style={{ height: "80vh" }}></div>
+            <section className="relative min-h-screen flex flex-col justify-center items-center px-4">
+                <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-red-800">
+                    Charles Goh C.K
+                </h1>
+                <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 text-center max-w-2xl">
+                    Solving problems in systems and software.
+                </p>
+                <div className="mt-8">
+                    <Link className="px-8 py-4 btn btn-primary font-medium rounded-full shadow hover:shadow-lg transition" href={"/blog"}>
+                        Blog
+                    </Link>
+                </div>
+            </section>
             <div style={{ padding: "5vh", display: "flex", "justifyContent": "center", flexWrap: "wrap" }} className="bg-base-300">
                 <h2 style={{ textAlign: "center", paddingBottom: "5vh", width: "100%" }} className="text-primary"><strong>Software Engineering @ Visa</strong></h2>
             </div>
