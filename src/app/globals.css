@@ -87,3 +87,11 @@ body {
     padding: 3vh;
     text-align: center;
 }
+
+@media (max-width: 1320px) {
+    .three-element-individual {
+        width: 100%;
+        padding: 3vh;
+        text-align: center;
+    }
+}
