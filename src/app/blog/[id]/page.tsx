@@ -70,7 +70,7 @@ export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
                         className='blog-content mx-auto'
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
-                    <Link href={`/blog`}><button className='btn btn-outline btn-primary'>Back</button></Link>
+                    <Link href={`/blog`}><button className='btn btn-primary'>Back</button></Link>
                 </div>
             </article>
         </main>
