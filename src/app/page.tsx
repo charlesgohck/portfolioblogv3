@@ -38,9 +38,9 @@ export default function Home() {
                     <p>Leveraging on open source, industry standard, and proprietary cloud tools and automations to streamline deployment and continuous integration/continuous delivery (CI/CD) pipelines for application projects.</p>
                 </div>
                 <div className="three-element-individual">
-                    <i className="fa-solid fa-lightbulb fa-5x"></i>
-                    <p className="text-primary"><strong>Innovation</strong></p>
-                    <p>Working with various teams to contribute to innovation both in Singapore and worldwide for the organization through co-authoring and implementing technology intellectual property.</p>
+                    <i className="fa-solid fa-robot fa-5x"></i>
+                    <p className="text-primary"><strong>AI Operations</strong></p>
+                    <p>Collaborating with a cross-functional team of Software, DevOps, and AI Engineers to leverage on the power of Artificial Intelligence to empower operations and infrastructure in the organization.</p>
                 </div>
             </div>
             <div style={{ padding: "5vh", display: "flex", "justifyContent": "center", flexWrap: "wrap" }}>
