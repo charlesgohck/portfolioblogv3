@@ -14,7 +14,7 @@ export default function Home() {
                 <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-red-800">
                     Charles Goh C.K
                 </h1>
-                <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 text-center max-w-2xl">
+                <p className="mt-4 text-lg sm:text-xl md:text-2x text-center max-w-2xl">
                     Solving problems in systems and software.
                 </p>
                 <div className="mt-8">
