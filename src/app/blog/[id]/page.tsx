@@ -69,7 +69,7 @@ export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
                     <h3 className='text-center'>{publishedAt ? new Date(publishedAt).toLocaleDateString() : "Invalid Date"}</h3>
                     <div className='text-center mb-5'>
                         {
-                            tags.map(tag => <div className="badge badge-primary m-0.5" key={`${title.split(" ").join("-")}-${tag.name.split(" ").join("-")}`}>{tag.name}</div>)
+                            tags.map(tag => <div className="badge badge-primary m-0.5 p-2" key={`${title.split(" ").join("-")}-${tag.name.split(" ").join("-")}`}>{tag.name}</div>)
                         }
                     </div>
                     <div

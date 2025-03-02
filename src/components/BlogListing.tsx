@@ -40,7 +40,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
     };
 
     const debouncedSearch = useCallback(
-        debounce(nextSearchValue => handleSearch(nextSearchValue), 500), []
+        (value: string) => handleSearch(value), [handleSearch]
     );
 
     const handleDebouncedSearchQueryEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,10 +71,10 @@ export default function BlogListing({ posts }: BlogListingProps) {
                     <h1 className="mt-5 text-center">Blog</h1>
                     <div className="pl-5 pb-5 text-center">
                         {
-                            allTags.map(tag => <button type="button" className={`cursor-pointer border-slate-500 badge ${searchTags.has(tag) ? "badge-primary" : "badge-neutral" } m-0.5`} key={`search-tag-${tag}`} onClick={() => handleSubmitSearchTag(tag)}>{tag}</button>)
+                            allTags.map(tag => <button type="button" className={`cursor-pointer p-2 border-slate-500 badge ${searchTags.has(tag) ? "badge-primary" : "badge-neutral" } m-0.5`} key={`search-tag-${tag}`} onClick={() => handleSubmitSearchTag(tag)}>{tag}</button>)
                         }
                     </div>
-                    <label className="input input-bordered flex items-center gap-2 w-[100%]">
+                    <label className="input input-bordered border-1 flex items-center gap-2 w-[100%]">
                         <input type="text" className="grow" placeholder="Search" onChange={handleDebouncedSearchQueryEvent} />
                         {
                             keywords.length === 0 ? <button>
@@ -130,7 +130,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
                                         <div className="pl-5">{element.description}</div>
                                         <div className="pl-5 pb-5">
                                             {
-                                                element.tags.map(tag => <button className="cursor-pointer badge badge-primary m-0.5" key={`${element.title.split(" ").join("-")}-${tag.name.split(" ").join("-")}`} onClick={() => handleSubmitSearchTag(tag.name)}>{tag.name}</button>)
+                                                element.tags.map(tag => <button className="cursor-pointer p-2 badge badge-primary m-0.5" key={`${element.title.split(" ").join("-")}-${tag.name.split(" ").join("-")}`} onClick={() => handleSubmitSearchTag(tag.name)}>{tag.name}</button>)
                                             }
                                         </div>
                                     </div>
