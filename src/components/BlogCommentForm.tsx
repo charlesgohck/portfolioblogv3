@@ -18,6 +18,7 @@ import { useToast } from "@/hooks/useToaster";
 import axios from 'axios';
 import { CreateCommentInput, CreateCommentResult } from "@wisp-cms/client";
 import { Dispatch, SetStateAction, useState } from "react";
+import { wisp } from "@/lib/wisp";
 
 const formSchema = z.object({
     author: z.string().min(1, "Name is required"),
@@ -64,22 +65,22 @@ export default function CommentForm({ slug, config, setIsSubmitting }: CommentFo
             const createCommentInput: CreateCommentInput = {
                 ...values, slug
             }
-            axios.post("/api/comment", createCommentInput).then(data => {
-                if (data.status === 200 || data.status === 201) {
-                    setData(data.data);
-                    console.log("Comment submitted successfully. Resetting form.");
-                    toast({ title: "Success", description: "Posted comment. Thanks for commenting! Please verify your email. It will then undergo checks before displaying.", variant: "success" })
-                    form.reset();
-                } else {
-                    console.log("Comment creation failed. Please retry.")
-                    toast({ title: "Error", description: "Comment creation failed. Please retry.", variant: "error" })
+            wisp.createComment(createCommentInput).then(
+                data => {
+                    setData(data);
+                    if (data.success) {
+                        console.log("Comment submitted successfully. Resetting form.");
+                        toast({ title: "Success", description: "Posted comment. Thanks for commenting! Please verify your email. It will then undergo checks before displaying.", variant: "success" })
+                        form.reset();
+                    } else {
+                        console.log("Comment creation failed. Please retry.")
+                        toast({ title: "Error", description: "Comment creation failed. Please retry.", variant: "error" })
+                    }
                 }
-            }).catch(error => {
-                console.log(`Internal Server error encountered. ${error}`);
-            }).finally(() => {
-                console.log("Form submission completed.");
-                setIsSubmitting(false);
-            })
+            ).catch(error => {
+                console.log("Comment creation caught error.");
+                toast({ title: "Error", description: `Comment creation failed.`, variant: "error" })
+            }).finally(() => setIsSubmitting(false));
         } catch (e) {
             if (e instanceof Error) {
                 toast({
