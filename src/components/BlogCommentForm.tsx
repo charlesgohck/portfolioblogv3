@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
     Form,
@@ -18,7 +17,7 @@ import { z } from "zod";
 import { useToast } from "@/hooks/useToaster";
 import axios from 'axios';
 import { CreateCommentInput, CreateCommentResult } from "@wisp-cms/client";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 const formSchema = z.object({
     author: z.string().min(1, "Name is required"),
@@ -39,10 +38,11 @@ interface CommentFormProps {
         signUpMessage: string | null;
     };
     parentId?: string;
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>
     onSuccess?: () => void;
 }
 
-export default function CommentForm({ slug, config }: CommentFormProps) {
+export default function CommentForm({ slug, config, setIsSubmitting }: CommentFormProps) {
     const { toast } = useToast();
     const [data, setData] = useState<null|CreateCommentResult>()
 
@@ -60,6 +60,7 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             console.log("Attempting to create new comment.");
+            setIsSubmitting(true);
             const createCommentInput: CreateCommentInput = {
                 ...values, slug
             }
@@ -77,6 +78,7 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
                 console.log(`Internal Server error encountered. ${error}`);
             }).finally(() => {
                 console.log("Form submission completed.");
+                setIsSubmitting(false);
             })
         } catch (e) {
             if (e instanceof Error) {
@@ -106,7 +108,7 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 items-start">
                     <FormField
                         control={form.control}
                         name="author"
@@ -117,7 +119,6 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
                                     <Input
                                         placeholder="Your name"
                                         {...field}
-                                        className="focus-visible:ring-inset"
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -134,7 +135,6 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
                                     <Input
                                         type="email"
                                         placeholder="you@example.com"
-                                        className="focus-visible:ring-inset"
                                         {...field}
                                     />
                                 </FormControl>
@@ -155,7 +155,6 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
                                     <Input
                                         type="url"
                                         placeholder="https://example.com"
-                                        className="focus-visible:ring-inset"
                                         {...field}
                                     />
                                 </FormControl>
@@ -174,7 +173,6 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
                             <FormControl>
                                 <Textarea
                                     placeholder="Share your thoughts..."
-                                    className="min-h-[120px] resize-y focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-offset-0"
                                     {...field}
                                 />
                             </FormControl>
@@ -206,9 +204,9 @@ export default function CommentForm({ slug, config }: CommentFormProps) {
                 )}
 
                 <div className="flex items-center justify-between pt-2">
-                    <Button type="submit" disabled={form.formState.isSubmitting}>
+                    <button className="btn btn-primary" type="submit" disabled={form.formState.isSubmitting}>
                         Post Comment
-                    </Button>
+                    </button>
                 </div>
             </form>
         </Form>

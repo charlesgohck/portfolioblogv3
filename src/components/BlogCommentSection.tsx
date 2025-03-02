@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import CommentForm from "./BlogCommentForm";
 import CommentList from "./BlogCommentList";
 import { GetCommentsResult } from "@wisp-cms/client";
@@ -10,6 +11,8 @@ interface CommentSectionProps {
 }
 
 export default function CommentSection({ slug, comments }: CommentSectionProps) {
+
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     const isLoading: boolean = comments.comments === null || comments.comments === undefined;
 
@@ -25,7 +28,14 @@ export default function CommentSection({ slug, comments }: CommentSectionProps) 
     return (
         <div>
             <h2 className="mb-8 text-2xl font-bold tracking-tight">Add Comments</h2>
-            <CommentForm slug={slug} config={comments.config} />
+            {
+                isSubmitting ? <div className="flex w-52 flex-col gap-4">
+                    <div className="skeleton h-32 w-full"></div>
+                    <div className="skeleton h-4 w-28"></div>
+                    <div className="skeleton h-4 w-full"></div>
+                    <div className="skeleton h-4 w-full"></div>
+                </div> : <CommentForm slug={slug} config={comments.config} setIsSubmitting={setIsSubmitting} />
+            }
             <h2 className="mb-8 mt-16 text-2xl font-bold tracking-tight">Comments</h2>
             <CommentList
                 comments={comments.comments}
