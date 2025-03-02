@@ -32,10 +32,10 @@ export default function Toast() {
         addToastGlobal = ({ title, description, variant = "default" }) => {
             const id = Date.now();
             setToasts((prev) => [...prev, { id, title, description, variant }]);
-            // Auto dismiss after 3 seconds
+            // Auto dismiss after 5 seconds
             setTimeout(() => {
                 setToasts((prev) => prev.filter((toast) => toast.id !== id));
-            }, 3000);
+            }, 5000);
         };
 
         // Clean up on unmount

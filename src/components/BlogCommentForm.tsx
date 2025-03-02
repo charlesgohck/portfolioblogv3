@@ -72,7 +72,7 @@ export default function CommentForm({ slug, config, setIsSubmitting }: CommentFo
                     form.reset();
                 } else {
                     console.log("Comment creation failed. Please retry.")
-                    toast({ title: "" })
+                    toast({ title: "Error", description: "Comment creation failed. Please retry.", variant: "error" })
                 }
             }).catch(error => {
                 console.log(`Internal Server error encountered. ${error}`);
