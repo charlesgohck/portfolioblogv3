@@ -3,7 +3,6 @@
 import { GetPostsResult } from "@/lib/wisp";
 import Link from "next/link";
 import { useCallback, useState } from "react";
-import { debounce } from 'lodash';
 
 export interface BlogListingProps {
     posts: GetPostsResult
