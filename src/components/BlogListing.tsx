@@ -122,7 +122,7 @@ export default function BlogListing({ posts }: BlogListingProps) {
                             </div>
                         </div> :
                         postsProcessed.map(element => {
-                            return <div key={element.title.split(" ").join("-")} className="card w-96 bg-base-100 shadow-xl" style={{ marginBottom: "3vh", width: "100%" }}>
+                            return <div key={element.title.split(" ").join("-")} className="card w-96 shadow-xl mb-[3vh]" style={{ marginBottom: "3vh", width: "100%" }}>
                                 <div className="flex justify-between">
                                     <div className="w-[70%]">
                                         <div className="text-3xl font-bold pl-5 pt-5">{element.title}</div>

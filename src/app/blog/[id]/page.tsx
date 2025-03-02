@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { wisp } from '@/lib/wisp';
+import CommentSection from '@/components/BlogCommentSection';
 
 export async function generateStaticParams() {
     const index = await wisp.getPosts();
@@ -38,6 +39,11 @@ export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
     const id: string = (await params).id;
 
     const result = await wisp.getPost(id);
+    const commentsData = await wisp.getComments({
+        slug: id,
+        page: undefined,
+        limit: 'all'
+    });
 
     if (!result.post) {
         return (
@@ -70,6 +76,8 @@ export default async function BlogPost({ params }: PageProps<BlogPostParams>) {
                         className='blog-content mx-auto'
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
+                    <CommentSection slug={id} comments={commentsData}/>
+                    <br/>
                     <Link href={`/blog`}><button className='btn btn-primary'>Back</button></Link>
                 </div>
             </article>
