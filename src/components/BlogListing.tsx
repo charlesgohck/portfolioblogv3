@@ -2,7 +2,7 @@
 
 import { GetPostsResult } from "@/lib/wisp";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export interface BlogListingProps {
     posts: GetPostsResult
@@ -38,13 +38,13 @@ export default function BlogListing({ posts }: BlogListingProps) {
         setKeywords(query);
     };
 
-    // const debouncedSearch = useCallback(
-    //     (value: string) => handleSearch(value), [handleSearch]
-    // );
+    const debouncedSearch = useCallback(
+        (value: string) => handleSearch(value), [handleSearch]
+    );
 
     const handleDebouncedSearchQueryEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
-        handleSearch(value);
+        debouncedSearch(value);
     }
     
     let postsProcessed = posts.posts;
