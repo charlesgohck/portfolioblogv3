@@ -73,20 +73,22 @@ export default function BlogListing({ posts }: BlogListingProps) {
                             allTags.map(tag => <button type="button" className={`cursor-pointer p-2 border-slate-500 badge ${searchTags.has(tag) ? "badge-primary" : "badge-neutral" } m-0.5`} key={`search-tag-${tag}`} onClick={() => handleSubmitSearchTag(tag)}>{tag}</button>)
                         }
                     </div>
-                    <label className="input input-bordered border-1 flex items-center gap-2 w-[100%]">
-                        <input type="text" className="grow" placeholder="Search" onChange={handleDebouncedSearchQueryEvent} />
-                        {
-                            keywords.length === 0 ? <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                            </button> : <button onClick={onClickResetSearchBox}>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                            </button>
-                        }
-                    </label>
+                    <div className="flex justify-center">
+                        <label className="input input-bordered border-1 flex items-center gap-2 w-[96%]">
+                            <input type="text" className="grow" placeholder="Search" onChange={handleDebouncedSearchQueryEvent} />
+                            {
+                                keywords.length === 0 ? <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                </button> : <button onClick={onClickResetSearchBox}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                </button>
+                            }
+                        </label>
+                    </div>
                     <br/>
                     {
                         posts === null || posts === undefined ? <div>
