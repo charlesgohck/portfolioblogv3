@@ -2,7 +2,8 @@
 
 import { GetPostsResult } from "@/lib/wisp";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import { debounce } from "lodash";
 
 export interface BlogListingProps {
     posts: GetPostsResult
@@ -33,14 +34,12 @@ export default function BlogListing({ posts }: BlogListingProps) {
         setKeywords("");
     }
 
-    const handleSearch = (query: string) => {
-        query = query.toLowerCase();
-        setKeywords(query);
-    };
-
-    const debouncedSearch = useCallback(
-        (value: string) => handleSearch(value), [handleSearch]
-    );
+    const debouncedSearch = useRef(
+        debounce((value: string) => {
+            value = value.toLowerCase();
+            setKeywords(value);
+        }, 500)
+    ).current;
 
     const handleDebouncedSearchQueryEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
