@@ -1,5 +1,8 @@
 # Getting Started
 - Git clone the repository
+```bash
+git clone myrepo.git
+```
 - Install packages using the command
 ```bash
 npm install
