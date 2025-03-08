@@ -70,7 +70,7 @@ export default function CommentForm({ slug, config, setIsSubmitting }: CommentFo
                     setData(data);
                     if (data.success) {
                         console.log("Comment submitted successfully. Resetting form.");
-                        toast({ title: "Success", description: "Posted comment. Thanks for commenting! Please verify your email. It will then undergo checks before displaying.", variant: "success" })
+                        toast({ title: "Success", description: "Thanks for commenting. Please verify via email.", variant: "success" })
                         form.reset();
                     } else {
                         console.log("Comment creation failed. Please retry.")
